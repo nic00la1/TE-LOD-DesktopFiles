@@ -15,7 +15,7 @@ namespace TE_LOD_DesktopFiles
             // Obejmij kod obsługą błędów
             try
             {
-                Console.WriteLine("Podaj ścieżkę do sprawdzenia: ");
+               // Console.WriteLine("Podaj ścieżkę do sprawdzenia: ");
                /* string path = Console.ReadLine();
 
                 string[] dirs = Directory.GetDirectories(path);
@@ -82,12 +82,15 @@ namespace TE_LOD_DesktopFiles
                     Console.WriteLine("nie skopiowano");
                 }
                 ====================================================== */
-                string path = "tekst.txt";
+
+                string path = "plik.txt";
                 StreamReader reader = new StreamReader(path);
-                string data = "";
-                while ((data += reader.ReadLine()) != null) { 
-                    Console.WriteLine(data);
-                } 
+
+                string data = reader.ReadToEnd();
+                Console.WriteLine(data);
+
+                reader.Close();
+
 
             }
             catch (IOException ex)
