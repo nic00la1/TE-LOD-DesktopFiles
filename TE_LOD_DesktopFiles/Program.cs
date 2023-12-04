@@ -13,7 +13,24 @@ namespace TE_LOD_DesktopFiles
         public static void Main(string[] args)
         {
             // Obejmij kod obsługą błędów
-
+            try
+            {
+                string path = "plik.txt";
+                // Sprawdzenie czy plik istnieje
+                if(File.Exists(path))
+                {
+                // Wyświetlenie całej zawartości tekstu
+                Console.WriteLine(File.ReadAllText(path));
+                }
+                else
+                {
+                    Console.WriteLine("Nie ma tego pliku");
+                    File.Create(path); // Tworzenie nowego pliku
+                }
+            } catch (IOException ex)
+            {
+                Console.WriteLine(ex.Message); // Napisz wiadomosc, gdy nie ma takiego pliku
+            }
 
         }
     }
